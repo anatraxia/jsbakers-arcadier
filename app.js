@@ -10,6 +10,7 @@ import index from './routes/index';
 
 const app = express();
 const debug = Debug('jsbakers-arcadier:app');
+const Swagger = require('swagger-client')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,6 +29,7 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/categories', require('./routes/categories_routes'))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
