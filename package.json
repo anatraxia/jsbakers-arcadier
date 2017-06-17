@@ -18,6 +18,8 @@
     "express": "~4.14.1",
     "less-middleware": "^2.2.0",
     "morgan": "~1.7.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-plus": "^0.5.1",
     "pug": "^2.0.0-beta11",
     "serve-favicon": "~2.3.2",
     "swagger-client": "^3.0.15"
