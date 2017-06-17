@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/categories', require('./routes/categories_routes'))
+app.use('/items', require('./routes/item_routes'))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -39,7 +40,6 @@ app.use((req, res, next) => {
 });
 
 // error handler
-/* eslint no-unused-vars: 0 */
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
