@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 
   request(options, function (error, response, body) {
     if (error) throw error
-    res.render('index', {json: body})
+    res.render('index', body)
   })
 })
 
@@ -47,4 +47,5 @@ router.get('/secret', (req, res, next) => {
     title: 'Express'
   });
 });
+
 export default router
