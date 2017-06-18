@@ -6,78 +6,23 @@ block content
           .col-md-3.border-right
             h3 All Categories
             ul.category-list
-              li
-                a(role='button', data-toggle='collapse', href='#subCategory9') Women's Clothing
-                ul#subCategory9.collapse
-                  li
-                    a(role='button', href='/category/33')
-                      | DRESS
-                  li
-                    a(role='button', href='/category/34')
-                      | TOPS
-                  li
-                    a(role='button', href='/category/35')
-                      | KNITWEAR
-                  li
-                    a(role='button', href='/category/36')
-                      | SHIRTS & BLOUSES
-              li
-                a(role='button', href='/category/28')
-                  | Men's Clothing
-              li
-                a(role='button', data-toggle='collapse', href='#subCategory29') Women's Footwear
-                ul#subCategory29.collapse
-                  li
-                    a(role='button', href='/category/37')
-                      | HIGH HEELS
-                  li
-                    a(role='button', href='/category/38')
-                      | FLATS
-                  li
-                    a(role='button', href='/category/39')
-                      | TRAINERS
-                  li
-                    a(role='button', href='/category/40')
-                      | BOOTS
-                  li
-                    a(role='button', href='/category/41')
-                      | WEDGES
-                  li
-                    a(role='button', href='/category/42')
-                      | SANDALS
-              li
-                a(role='button', href='/category/30')
-                  | Men's Footwear
-              li
-                a(role='button', data-toggle='collapse', href='#subCategory31') Women's Accessories
-                ul#subCategory31.collapse
-                  li
-                    a(role='button', href='/category/43')
-                      | HANDBAGS
-                  li
-                    a(role='button', href='/category/44')
-                      | EVENING BAGS
-                  li
-                    a(role='button', href='/category/45')
-                      | PURSES
-                  li
-                    a(role='button', href='/category/46')
-                      | SCARVES
-                  li
-                    a(role='button', href='/category/47')
-                      | WATCHES
-              li
-                a(role='button', href='/category/32')
-                  | Men's Accessories
+              each val in json
+                li
+                   a(role='button', data-toggle='collapse', href='#subCategory'+val.ID)=val.Name
+                    ul(id="subCategory"+val.ID).collapse
+                      -for (var i=0; i<val.ChildCategories.length;i++) {
+                        li
+                           a(role='button', href='/category/'+ val.ChildCategories[i].ID)=val.ChildCategories[i].Name
+                      -}
           .col-md-9
             .row
               h3.pull-left(style='display: inline-block; padding-left: 15px;') Items
               .col-md-6.pull-right.text-right(style='display: inline-block;')
-                
+
                 a.btn.btn-primary.m-r(href='/cart') View Cart
-                
+
                 a.btn.btn-primary.m-r(href='/order/orderhistory') Order History
-                
+
                 a.btn.btn-success(href='/login') Login
             .row
               .col-md-6
@@ -89,6 +34,4 @@ block content
                 h3.text-danger
                   | Select a category or enter a search term
   
-
 block scripts
-  script(src='/javascripts/main.js')

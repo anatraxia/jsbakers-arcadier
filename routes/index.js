@@ -1,6 +1,6 @@
-import express from 'express';
+import express from 'express'
 
-const router = express.Router();
+const router = express.Router()
 
 /* GET index page. */
 router.get('/', (req, res, next) => {
@@ -8,5 +8,39 @@ router.get('/', (req, res, next) => {
     title: 'Express'
   });
 });
+/* GET Cart page. */
+router.get('/cart', (req, res, next) => {
+  res.render('cart', {
+    title: 'Express'
+  });
+});
+/* GET login page. */
+router.get('/login', (req, res, next) => {
+  res.render('login', {
+    title: 'Express'
+  });
+});
 
-export default router;
+/* GET orderhistory page. */
+router.get('/order/orderhistory', (req, res, next) => {
+  res.render('orderhistory', {
+    title: 'Express'
+  });
+});
+
+router.get('/secret', (req, res, next) => {
+  res.render('secret', {
+    title: 'Express'
+  });
+});
+
+
+
+
+  request(options, function (error, response, body) {
+    if (error) throw error
+    res.render('index', {json: body})
+  })
+})
+
+export default router

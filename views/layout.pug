@@ -5,12 +5,14 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     // Bootstrap core CSS
     link(href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css', rel='stylesheet', media='screen')
-    link(href='/public/stylesheets/style.css', rel='stylesheet', media='screen')
+    
+    link(href='/stylesheets/style.less', rel='stylesheet', media='screen')
+    
   body
     .container
       header
         a(href='/')
-          img(src='/Assets/img/logo.png')
+          
     .container
       block content
 
@@ -19,6 +21,7 @@ html
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     script(src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js')
-
+    // Local script
+  
 
     block scripts
