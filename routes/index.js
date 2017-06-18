@@ -21,6 +21,12 @@ router.get('/login', (req, res, next) => {
   });
 });
 
+router.get('/signup', (req, res, next) => {
+  res.render('signup', {
+    title: 'Express'
+  });
+});
+
 /* GET orderhistory page. */
 router.get('/order/orderhistory', (req, res, next) => {
   res.render('orderhistory', {
@@ -28,10 +34,6 @@ router.get('/order/orderhistory', (req, res, next) => {
   });
 });
 
-router.get('/secret', (req, res, next) => {
-  res.render('secret', {
-    title: 'Express'
-  });
-});
+
 
 export default router

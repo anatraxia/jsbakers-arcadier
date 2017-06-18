@@ -99,7 +99,7 @@ module.exports = function( passport ) {
     passport.use('facebook', new facebookStrategy({
         clientID: '312321872530129',
         clientSecret: '6287d36f6563f07be97fe11474329c8c',
-        callbackURL: 'http://localhost:3000/auth/facebook/callback',
+        callbackURL: 'https://jsbakers-arcadier.herokuapp.com/auth/facebook/callback',
         profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
         passReqToCallback: true
       },
@@ -152,7 +152,7 @@ module.exports = function( passport ) {
   passport.use('google', new googleStrategy({
     clientID: '649678865382-vvcrqv0dnui7hqcipf8ngpqb0736ueof.apps.googleusercontent.com',
     clientSecret: 'mlcFYyIxzqYXRgf6ZUd_RzJj',
-    callbackURL: 'http://localhost:3000/auth/google/callback',
+    callbackURL: 'https://jsbakers-arcadier.herokuapp.com/auth/google/callback',
     passReqToCallback: true
     },
     function( req, accessToken, refreshToken, profile, done){

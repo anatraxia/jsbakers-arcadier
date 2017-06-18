@@ -16,7 +16,7 @@ module.exports = function(app, passport){
 
   // Sign up
   app.post('/', passport.authenticate('local-signup', {
-    successRedirect : '/secret',
+    successRedirect : '/',
     failureRedirect : '/',
     failureFlash: true
   }));
@@ -28,7 +28,7 @@ module.exports = function(app, passport){
 
   // Login
   app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/secret',
+    successRedirect : '/',
     failureRedirect : '/login',
     failureFlash: true
   }));
@@ -36,17 +36,17 @@ module.exports = function(app, passport){
   app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'public_profile'] }));
   app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }),
    (req, res) => {
-    res.redirect(req.session.returnTo || '/secret');
+    res.redirect(req.session.returnTo || '/');
   });
 //
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile'] }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),
  (req, res) => {
-  res.redirect(req.session.returnTo || '/secret');
+  res.redirect(req.session.returnTo || '/');
 });
     // Secret
-  app.get('/secret', isLoggedIn, function(req, res){
-    res.render('secret', { message: req.flash('loginMessage') });
+  app.get('/', isLoggedIn, function(req, res){
+    res.render('/', { message: req.flash('loginMessage') });
   });
 
   // logout
