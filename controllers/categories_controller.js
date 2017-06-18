@@ -1,5 +1,4 @@
 let categoriesController = {
-<<<<<<< HEAD
   listSubCategories: (req, res) => {
     console.log(req.body.headers.category)
     var request = require('request')
@@ -8,16 +7,6 @@ let categoriesController = {
       headers:
       {
         category: '122',
-=======
-  list: (req, res) => {
-    var request = require('request')
-    var options = { method: 'GET',
-      url: 'https://gateaubread.sandbox.arcadier.io/api/consumers/categories',
-      qs: { topRows: '2' },
-      headers:
-      { 'postman-token': '0e7352ad-2330-c962-dead-c96ef9b060ed',
-        'cache-control': 'no-cache',
->>>>>>> ec649aada2b5352d5802ea3a54e0dd227c2a5004
         token: 'Qa49ztDmyUFIDafrpTg4oWj_g6Sqc390ov1vU',
         authorization: 'Bearer Q93id07fn2_fcId9Ni8IdmlYg7cE3nikYUbnEXF0NTuYuw5XrvP',
         'content-type': 'application/json' },
