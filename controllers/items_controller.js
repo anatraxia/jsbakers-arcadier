@@ -1,9 +1,9 @@
 let itemController = {
   list: (req, res) => {
     var request = require('request')
-    var options = { method: 'GET',
+    var options = {method: 'GET',
       url: 'https://gateaubread.sandbox.arcadier.io/api/consumers/items/search',
-      qs: { },
+      qs: {keywords: ''},
       headers:
       { 'postman-token': '0e7352ad-2330-c962-dead-c96ef9b060ed',
         'cache-control': 'no-cache',
@@ -21,6 +21,8 @@ let itemController = {
       });
     }); 
   }
+
+  
 }
 
 module.exports = itemController

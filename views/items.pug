@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  each val in json
-    li= val.ItemName
+  input.searchInput
+  
+  button.btn.btn-primary#searchButton(type='button') Search
+  p#output
