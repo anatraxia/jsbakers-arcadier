@@ -29,7 +29,7 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/categories', require('./routes/categories_routes'))
+app.use('/subCategories', require('./routes/categories_routes'))
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

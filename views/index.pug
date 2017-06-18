@@ -12,7 +12,7 @@ block content
                     ul(id="subCategory"+val.ID).collapse
                       -for (var i=0; i<val.ChildCategories.length;i++) {
                         li
-                           a(role='button', href='/category/'+ val.ChildCategories[i].ID)=val.ChildCategories[i].Name
+                           a(class='subCategories', role='button', id= val.ChildCategories[i].ID)=val.ChildCategories[i].Name
                       -}
           .col-md-9
             .row
@@ -33,7 +33,7 @@ block content
               .col-md-12(style='padding-top: 20px;')
                 h3.text-danger
                   | Select a category or enter a search term
+              div.resultCategory
 
 
 block scripts
-  script(src='/javascripts/main.js')
