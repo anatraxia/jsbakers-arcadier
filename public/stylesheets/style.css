@@ -68,6 +68,7 @@ nav,
 section,
 summary {
   display: block;
+  width: 100% auto;
 }
 
 canvas,

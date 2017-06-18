@@ -6,7 +6,7 @@ block content
         .container
           // Brand and toggle get grouped for better mobile display
           .navbar-header
-            #bs-example-navbar-collapse-1.col-md-7.collapse.navbar-collapse
+            #bs-example-navbar-collapse-1.col-md-6.collapse.navbar-collapse
               button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
                 span.sr-only Toggle navigation
                 span.icon-bar
@@ -26,7 +26,9 @@ block content
                 input#textSearch.form-control(type='text', placeholder='Search Item/Category')
                 span.input-group-btn
                   button#searchButton.btn.btn-success(type='button') Search
-            .col-md-2
+            .col-md-3
+              button#ordHistButton.btn.btn-hero(type='button') Order History
+              button#viewButton.btn.btn-hero(type='button') View Cart
               button#loginButton.btn.btn-hero(type='button') Log-in
             // /.navbar-collapse
           // /.container
