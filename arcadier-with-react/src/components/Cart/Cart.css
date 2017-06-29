@@ -1,0 +1,13 @@
+.cartOverallDiv {
+  height: 600px;
+}
+
+.categoriesContainer {
+  border: 1px solid black;
+  height: 600px;
+}
+
+.searchContainer {
+  border: 1px solid black;
+  height: 600px;
+}

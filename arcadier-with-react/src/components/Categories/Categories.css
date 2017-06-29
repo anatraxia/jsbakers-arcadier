@@ -1,0 +1,13 @@
+.CategoriesRow {
+  margin-top: 20px;
+}
+
+a {
+  font-family: Verdana;
+  font-size: 20px;
+}
+
+li {
+  height: 30px;
+  padding: 10px;
+}
