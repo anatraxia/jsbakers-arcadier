@@ -29,7 +29,7 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
   }
 
   getCategories = () => {
-    var url = 'http://anyorigin.com/go?url=https%3A//gateaubread.sandbox.arcadier.io/api/consumers/categories%3FtopRows%3D2&callback=?';
+    var url = 'http://anyorigin.com/go?url=https://gateaubread.sandbox.arcadier.io/api/consumers/categories%3FtopRows%3D2&callback=?';
     $.getJSON(url, function(data){
       console.log("Catagories Data: "+JSON.stringify(data));
     })
