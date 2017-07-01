@@ -21,15 +21,24 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
     }
   }
 
-  getCategories = () => {
+  getAllConsumerItems = () => {
     var url = 'http://anyorigin.com/go?url=https://gateaubread.sandbox.arcadier.io/api/consumers/items/search&callback=?';
     $.getJSON(url, function(data){
-      console.log(data);
+      console.log("Consumer Data: "+JSON.stringify(data));
     })
+  }
+
+  getCategories = () => {
+    var url = 'http://anyorigin.com/go?url=https%3A//gateaubread.sandbox.arcadier.io/api/consumers/categories%3FtopRows%3D2&callback=?';
+    $.getJSON(url, function(data){
+      console.log("Catagories Data: "+JSON.stringify(data));
+    })
+
   }
 
   render() {
     this.getCategories();
+    this.getAllConsumerItems();
     return (
       <div className="row cartOverallDiv">
 
