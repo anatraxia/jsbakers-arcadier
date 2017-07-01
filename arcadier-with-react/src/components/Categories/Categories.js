@@ -11,7 +11,6 @@ export class Categories extends Component { // eslint-disable-line react/prefer-
 
   render() {
     return (
-
     <div className="row CategoriesRow">
       <div className="col-md-12">
         <a href="#">Dresses</a>
