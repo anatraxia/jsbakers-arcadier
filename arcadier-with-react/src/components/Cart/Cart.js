@@ -7,8 +7,6 @@ import Search from '../Search/Search';
 // Import CSS
 import './Cart.css';
 
-// Import UUID
-import uuid from 'uuid'
 
 /**
  * Cart
@@ -29,21 +27,40 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
   }
 
   getCategories = () => {
-    var url = 'http://anyorigin.com/go?url=https://gateaubread.sandbox.arcadier.io/api/consumers/categories%3FtopRows%3D2&callback=?';
-    $.getJSON(url, function(data){
-      console.log("Catagories Data: "+JSON.stringify(data));
+    var url = 'http://anyorigin.com/go?url=https%3A//gateaubread.sandbox.arcadier.io/api/consumers/categories%3FtopRows%3D2&callback=?';
+    var categoryArray = this.state.categories
+    $.getJSON(url, (data) => {
+      for(var i =0 ; i < data.contents.length; i++)
+      categoryArray.push(data.contents[i])
+      this.setState({
+        categories: categoryArray
+      })
     })
+  }
 
+  renderCategories = () => {
+    var categoryArray = []
+    console.log(this.state.categories);
+    for(var i = 0 ;  i < this.state.categories.length;  i++){
+      categoryArray.push(<Categories key={this.state.categories[i].ID} name={this.state.categories[i].Name} subcategories={this.state.categories[i].ChildCategories}/>)
+    }
+    console.log(categoryArray)
+    return categoryArray
+  }
+  componentWillMount(){
+      this.getCategories()
   }
 
   render() {
-    this.getCategories();
-    this.getAllConsumerItems();
+
+    // this.getAllConsumerItems();
+    let categoriesRow = this.renderCategories()
+    console.log(categoriesRow);
     return (
       <div className="row cartOverallDiv">
 
         <div className="col-md-4 categoriesContainer">
-            <Categories categories={this.getCategories}/>
+          {categoriesRow}
         </div>
 
         <div className="col-md-8 searchContainer">
