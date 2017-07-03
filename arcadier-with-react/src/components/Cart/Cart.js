@@ -17,13 +17,12 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
     super(props);
     this.state = {
       categories: [],
-      items: []
+      items: [],
+      searchResults: []
     }
   }
 
-  getSearchString = (searchInputStr) => {
 
-  }
 
   getAllConsumerItems = () => {
     var url = 'http://anyorigin.com/go?url=https://gateaubread.sandbox.arcadier.io/api/consumers/items/search&callback=?';
@@ -37,14 +36,23 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
     })
   }
 
-  renderItems = () => {
-    console.log(this.state.items);
-    var itemArray = [];
+  getSearchString = (searchInputStr) => {
+      var searchResultsArray = [];
+      searchResultsArray = this.state.items.filter((item) => {
+        var newString = item.ItemName.toLowerCase();
+        return newString.includes(searchInputStr.toLowerCase());
+      })
+      this.setState({searchResults: searchResultsArray});
+  }
 
-    for(var i=0;i<this.state.items.length;i++){
-      itemArray.push(<Items key={this.state.items[i].ID} name={this.state.items[i].ItemName}/>)
+  renderSearchResults = () => {
+
+    var resultsArray = [];
+
+    for(var i=0;i<this.state.searchResults.length;i++){
+      resultsArray.push()
     }
-    return itemArray;
+
   }
 
   getCategories = () => {
@@ -76,7 +84,7 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
 
 
   render() {
-    let itemRows = this.renderItems();
+    let searchResults = this.renderSearchResults();
     let categoriesRow = this.renderCategories();
 
     return (
@@ -88,7 +96,7 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
 
         <div className="col-md-8 searchContainer">
           <Search getSearchString={this.getSearchString}/>
-          {itemRows}
+          {searchResults}
         </div>
 
       </div>
