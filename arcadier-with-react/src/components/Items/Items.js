@@ -12,12 +12,7 @@ export class Items extends Component { // eslint-disable-line react/prefer-state
   render() {
     return (
         <div className="col-md-12">
-          <ul>
-            <li>Some static search result</li>
-            <li>Some static search result</li>
-            <li>Some static search result</li>
-            <li>Some static search result</li>
-          </ul>
+
         </div>
     );
   }
