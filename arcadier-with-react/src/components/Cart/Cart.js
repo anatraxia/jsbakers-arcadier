@@ -2,7 +2,7 @@
 // Import Components
 import React, { Component } from 'react';
 import Categories from '../Categories/Categories';
-import Items from '../Items/Items';
+import SearchResults from '../SearchResults/SearchResults';
 import Search from '../Search/Search';
 
 // Import CSS
@@ -42,17 +42,18 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
         var newString = item.ItemName.toLowerCase();
         return newString.includes(searchInputStr.toLowerCase());
       })
+      if (searchResultsArray.length === 0) {alert('Search yielded no results');}
       this.setState({searchResults: searchResultsArray});
   }
 
   renderSearchResults = () => {
-
+    console.log(this.state.searchResults);
     var resultsArray = [];
 
     for(var i=0;i<this.state.searchResults.length;i++){
-      resultsArray.push()
+      resultsArray.push(<SearchResults key={this.state.searchResults[i].ID} name={this.state.searchResults[i].ItemName}/>)
     }
-
+    return resultsArray;
   }
 
   getCategories = () => {

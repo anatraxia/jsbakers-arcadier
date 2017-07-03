@@ -1,6 +1,5 @@
 // Import Components
 import React, { Component } from 'react';
-import Items from '../Items/Items';
 import {PropTypes} from 'react';
 
 // Import CSS
@@ -48,9 +47,6 @@ beginSearch = () => {
                 className="btn btn-lg btn-primary"
                 onClick={this.beginSearch}>Search</button>
       </div>
-    </div>
-    <div className="row searchBarResults">
-    <Items/>
     </div>
   </section>
     );
