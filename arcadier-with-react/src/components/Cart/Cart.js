@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import Categories from '../Categories/Categories';
 import Search from '../Search/Search';
+import uuid from 'uuid'
 
 // Import CSS
 import './Cart.css';
@@ -42,7 +43,7 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
     var categoryArray = []
     console.log(this.state.categories);
     for(var i = 0 ;  i < this.state.categories.length;  i++){
-      categoryArray.push(<Categories key={this.state.categories[i].ID} name={this.state.categories[i].Name} subcategories={this.state.categories[i].ChildCategories}/>)
+      categoryArray.push(<Categories key={uuid.v4()} id={this.state.categories[i].ID} name={this.state.categories[i].Name} subcategories={this.state.categories[i].ChildCategories}/>)
     }
     console.log(categoryArray)
     return categoryArray
@@ -52,7 +53,7 @@ export class Cart extends Component { // eslint-disable-line react/prefer-statel
   }
 
   render() {
-
+    // this.getCategories()
     // this.getAllConsumerItems();
     let categoriesRow = this.renderCategories()
     console.log(categoriesRow);
